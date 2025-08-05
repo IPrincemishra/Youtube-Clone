@@ -1,16 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function VideoCard({ info }) {
     const { snippet, statistics } = info ?? {};
     const { channelTitle, title, thumbnails } = snippet ?? {};
 
     return (
-        <div className="bg-white rounded-lg shadow hover:shadow-lg transition w-[380px] cursor-pointer m-2">
+        
+        <div className="bg-white rounded-lg shadow hover:shadow-lg transition w-[330px] cursor-pointer m-2">
             {/* Video thumbnail */}
             <img
                 src={thumbnails?.medium?.url}
                 alt={title}
-                className="rounded-t-lg w-full h-[220px] object-cover"
+                className="rounded-t-lg w-full h-fit object-cover"
             />
 
             {/* Video details */}

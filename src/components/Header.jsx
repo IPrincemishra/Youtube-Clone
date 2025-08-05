@@ -3,6 +3,7 @@ import { FaSearch } from 'react-icons/fa';
 import { HUMBURGER_ICON, PF_ICON, YT_LOGO } from '../utils/constants';
 import { useDispatch } from 'react-redux';
 import { toggleMenu } from '../utils/appSlice';
+import { Link } from 'react-router-dom';
 
 function Header() {
 
@@ -21,8 +22,10 @@ function Header() {
                     src={HUMBURGER_ICON} alt="Humburger Menu"
                 />
                 <img
-                    className='h-6'
-                    src={YT_LOGO} alt="Logo" />
+                    className="h-6"
+                    src={YT_LOGO}
+                    alt="YouTube Logo"
+                />
             </div>
             <div className='col-span-10 flex justify-center'>
                 <input type="text"

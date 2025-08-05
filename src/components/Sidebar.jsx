@@ -1,14 +1,15 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 function Sidebar() {
 
     const isMenuOpen = useSelector(store => store.app.isMenuOpen)
 
-    return (!isMenuOpen && <aside className=" bg-white shadow px-4 py-5 w-48">
+    return (!isMenuOpen && <aside className=" bg-white shadow px-4 py-5 w-[15%]">
         <div className="py-2 border-b mb-3">
             <ul className="space-y-2 text-[15px]">
-                <li>Home</li>
+                <li><Link to="/">Home</Link></li>
                 <li>Shorts</li>
                 <li>Videos</li>
                 <li>Live</li>
