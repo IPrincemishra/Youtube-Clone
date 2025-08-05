@@ -5,7 +5,7 @@ function Sidebar() {
 
     const isMenuOpen = useSelector(store => store.app.isMenuOpen)
 
-    return (!isMenuOpen && <aside className="w-52 bg-white shadow px-4 py-5 ">
+    return (!isMenuOpen && <aside className=" bg-white shadow px-4 py-5 w-48">
         <div className="py-2 border-b mb-3">
             <ul className="space-y-2 text-[15px]">
                 <li>Home</li>
