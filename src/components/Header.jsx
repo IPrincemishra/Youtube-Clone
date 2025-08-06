@@ -1,11 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaSearch } from 'react-icons/fa';
-import { HUMBURGER_ICON, PF_ICON, YT_LOGO } from '../utils/constants';
+import { HUMBURGER_ICON, PF_ICON, YT_LOGO, YT_SEARCH_API } from '../utils/constants';
 import { useDispatch } from 'react-redux';
 import { toggleMenu } from '../utils/appSlice';
 import { Link } from 'react-router-dom';
 
 function Header() {
+
+    const [serachQuery, setSerachQuery] = useState([])
+
+
+    useEffect(() => {
+        const timer = setTimeout(() => searchSuggestion(), 200);
+
+        return () => {
+            clearTimeout(timer)
+        }
+
+    }, [serachQuery])
+
+    const searchSuggestion = async () => {
+        const data = await fetch(YT_SEARCH_API + serachQuery);
+        const json = await data.json()
+
+        console.log(json[1]);
+
+    }
 
     const disptach = useDispatch()
 
@@ -28,9 +48,13 @@ function Header() {
                 />
             </div>
             <div className='col-span-10 flex justify-center'>
-                <input type="text"
+                <input
+                    type="text"
                     className='border rounded-l-4xl w-7/12 px-5 py-2 outline-none active:border focus:border-blue-400'
-                    placeholder='Search' />
+                    placeholder='Search'
+                    value={serachQuery}
+                    onChange={(e) => setSerachQuery(e.target.value)}
+                />
                 <button className='border border-l-0 rounded-r-4xl px-7 bg-gray-100 py-2 cursor-pointer'>
                     <FaSearch size={18} />
                 </button>
