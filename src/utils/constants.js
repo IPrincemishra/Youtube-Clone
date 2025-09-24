@@ -4,7 +4,7 @@ export const YT_LOGO = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b
 
 export const PF_ICON = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtRs_rWILOMx5-v3aXwJu7LWUhnPceiKvvDg&s"
 
-const GOOGLE_API_KEY = "AIzaSyDz1trs5JHnjsqNDSY_EJzp7OXpzEKbcKs"
+const GOOGLE_API_KEY = import.meta.env.VITE_API_KEY;
 
 export const YT_VIDEOS_API = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=48&regionCode=IN&key=" + GOOGLE_API_KEY
 
